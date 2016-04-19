@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 class DynamicAppServiceProvider extends ServiceProvider
 {
+
     /**
      * Bootstrap the application services.
      *
@@ -23,7 +24,7 @@ class DynamicAppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-	    include __DIR__.'/routes.php';
-	    $this->app->make('Polevaultweb\Laravel\Spark\HelpScout\DynamicAppController');
+        include __DIR__ . '/routes.php';
+        $this->app->make('Polevaultweb\Laravel\Spark\HelpScout\DynamicAppController');
     }
 }
