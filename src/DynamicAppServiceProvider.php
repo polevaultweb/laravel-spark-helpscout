@@ -24,6 +24,14 @@ class DynamicAppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        if ( ! env('HELPSCOUT_APP_ENDPOINT_SECRET' ) ) {
+            return;
+        }
+
+        if ( ! env('HELPSCOUT_APP_TOKEN' ) ) {
+            return;
+        }
+
         include __DIR__ . '/routes.php';
         $this->app->make('Polevaultweb\Laravel\Spark\HelpScout\DynamicAppController');
     }
