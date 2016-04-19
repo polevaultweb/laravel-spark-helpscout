@@ -30,17 +30,17 @@ class DynamicAppController extends Controller
             $this->_exit('<span class="badge error">User not found</span>');
         }
 
-        if (env('HELSPCOUT_APP_VALIDATE_BILLING')) {
-            $plan = $user->sparkPlan();
-            $html = '<ul class="unstyled">';
-            $html .= '<li><strong>' . $user->name . '</strong></li>';
-            $html .= '<li>' . $plan->name . '</li>';
-            $html .= '<li><span class="badge ' . ($plan->active ? 'success' : 'error') . '">' . ($plan->active ? 'ACTIVE' : 'INACTIVE') . '</span></li>';
-            $html .= '</ul>';
-            $this->_exit($html);
-        } else {
+        if (env('HELSPCOUT_APP_VALIDATE_USER_EXISTS_ONLY')) {
             $this->_exit('<span class="badge success">User verified</span>');
         }
+
+        $plan = $user->sparkPlan();
+        $html = '<ul class="unstyled">';
+        $html .= '<li><strong>' . $user->name . '</strong></li>';
+        $html .= '<li>' . $plan->name . '</li>';
+        $html .= '<li><span class="badge ' . ($plan->active ? 'success' : 'error') . '">' . ($plan->active ? 'ACTIVE' : 'INACTIVE') . '</span></li>';
+        $html .= '</ul>';
+        $this->_exit($html);
     }
 
     protected function _exit($message)
