@@ -1,0 +1,14 @@
+{
+  "name": "polevaultweb/laravel-spark-helpscout",
+  "description": "Help Scout gadget for Laravel Spark.",
+  "license": "MIT",
+  "type": "package",
+  "require": {
+    "helpscout/apps": "1.1.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Polevaultweb\\LaravelSparkHelpScout\\": "src/"
+    }
+  }
+}
