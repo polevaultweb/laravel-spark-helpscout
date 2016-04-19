@@ -23,6 +23,7 @@ class HelpScoutServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+	    include __DIR__.'/routes.php';
+	    $this->app->make('Polevaultweb\LaravelSparkHelpScout\HelpScoutController');
     }
 }
