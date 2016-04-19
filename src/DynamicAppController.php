@@ -1,17 +1,16 @@
 <?php
-namespace Polevaultweb\LaravelSparkHelpScout;
+namespace Polevaultweb\Laravel\Spark\HelpScout;
 
 use App\Http\Controllers\Controller;
 use HelpScoutApp\DynamicApp;
 
-class HelpScoutController extends Controller {
+class DynamicAppController extends Controller {
 
 	public function index( $secret ) {
 		// Check secret against env config
 		if ( $secret !== env( 'HELPSCOUT_APP_ENDPOINT_SECRET' ) ) {
 			return;
 		}
-
 	}
 
 	protected function _exit( $message ) {
