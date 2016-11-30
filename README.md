@@ -6,7 +6,7 @@ To get this up an running, you'll need to configure a few things in your Laravel
 
 #### Laravel 
 
-- Run `composer require polevaultweb/laravel-spark-helpscout`
+- Run `composer require polevaultweb/laravel-spark-helpscout dev-master`
 - Add `Polevaultweb\Laravel\Spark\HelpScout\DynamicAppServiceProvider::class,` to your `providers` array in `config/app.php`
 
 Add some environment variables to you `.env` file:
