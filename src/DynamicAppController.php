@@ -53,7 +53,7 @@ class DynamicAppController extends Controller
     protected function html($user, $content)
     {
         $html = '<ul class="unstyled">';
-        $html .= '<li><strong>' . $user->name . '</strong></li>';
+        $html .= '<li><a href="' . url('/spark/kiosk#/users/' . $user->id) . '">' . $user->name . '</a></li>';
         $html .= $content;
         $html .= '</ul>';
 
