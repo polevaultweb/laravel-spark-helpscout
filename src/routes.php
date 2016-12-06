@@ -1,2 +1,2 @@
 <?php
-Route::get('helpscout/{secret}', 'polevaultweb\laravel\spark\helpscout\DynamicAppController@index');
+Route::post('helpscout/{secret}', 'polevaultweb\laravel\spark\helpscout\DynamicAppController@index');
