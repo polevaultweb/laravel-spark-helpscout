@@ -27,7 +27,7 @@ class DynamicAppController extends Controller
         $user = User::where('email', $email)->first();
 
         if (is_null($user)) {
-            $this->_exit('<span class="badge error">User not found</span>');
+            $this->_exit('<span class="badge error">NOT FOUND</span>');
         }
 
         if (env('HELSPCOUT_APP_VALIDATE_USER_EXISTS_ONLY')) {
