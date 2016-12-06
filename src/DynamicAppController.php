@@ -31,7 +31,7 @@ class DynamicAppController extends Controller
         }
 
         if (env('HELSPCOUT_APP_VALIDATE_USER_EXISTS_ONLY')) {
-            $this->_exit('<span class="badge success">User verified</span>');
+            $this->_exit('<span class="badge success">ACTIVE</span>');
         }
 
         $plan = $user->sparkPlan();
