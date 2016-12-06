@@ -31,16 +31,33 @@ class DynamicAppController extends Controller
         }
 
         if (env('HELSPCOUT_APP_VALIDATE_USER_EXISTS_ONLY')) {
-            $this->_exit('<span class="badge success">ACTIVE</span>');
+            $html = '<span class="badge success">ACTIVE</span>';
+            $html = $this->html($user, $html);
+            $this->_exit($html);
         }
 
         $plan = $user->sparkPlan();
-        $html = '<ul class="unstyled">';
-        $html .= '<li><strong>' . $user->name . '</strong></li>';
+        $html = '';
         $html .= '<li>' . $plan->name . '</li>';
         $html .= '<li><span class="badge ' . ($plan->active ? 'success' : 'error') . '">' . ($plan->active ? 'ACTIVE' : 'INACTIVE') . '</span></li>';
-        $html .= '</ul>';
+        $html = $this->html($user, $html);
         $this->_exit($html);
+    }
+
+    /**
+     * @param User $user
+     * @param string $content
+     *
+     * @return string
+     */
+    protected function html($user, $content)
+    {
+        $html = '<ul class="unstyled">';
+        $html .= '<li><strong>' . $user->name . '</strong></li>';
+        $html .= $content;
+        $html .= '</ul>';
+
+        return $html;
     }
 
     protected function _exit($message)
