@@ -38,8 +38,10 @@ class DynamicAppController extends Controller
 
         $plan = $user->sparkPlan();
         $html = '';
-        $html .= '<li>' . $plan->name . '</li>';
-        $html .= '<li><span class="badge ' . ($plan->active ? 'success' : 'error') . '">' . ($plan->active ? 'ACTIVE' : 'INACTIVE') . '</span></li>';
+        if ($plan) {
+            $html .= '<li>' . $plan->name . '</li>';
+            $html .= '<li><span class="badge ' . ($plan->active ? 'success' : 'error') . '">' . ($plan->active ? 'ACTIVE' : 'INACTIVE') . '</span></li>';
+        }
         $html = $this->html($user, $html);
         $this->_exit($html);
     }
