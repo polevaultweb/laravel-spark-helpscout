@@ -31,7 +31,7 @@ class DynamicAppController extends Controller
         }
 
         if (env('HELSPCOUT_APP_VALIDATE_USER_EXISTS_ONLY')) {
-            $html = '<span class="badge success">ACTIVE</span>';
+            $html = '<li><span class="badge success">ACTIVE</span></li>';
             $html = $this->html($user, $html);
             $this->_exit($html);
         }
